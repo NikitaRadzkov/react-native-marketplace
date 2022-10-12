@@ -15,29 +15,30 @@ function ImageInput({ imageUri, onChangeImage }) {
   }
 
   const handlePress = () => {
-    if (!imageUri) selectImage()
-    else Alert.alert('Delete', 'Are you sure you want to delete this image?', [
-      { text: 'Yes', onPress: () => onChangeImage(null) },
-      { text: 'No' }
-    ])
-  }
+    if (!imageUri) selectImage();
+    else
+      Alert.alert("Delete", "Are you sure you want to delete this image?", [
+        { text: "Yes", onPress: () => onChangeImage(null) },
+        { text: "No" },
+      ]);
+  };
 
   const selectImage = async () => {
     try {
-      const result = ImagePicker.launchImageLibraryAsync({
+      const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.5
-      })
-      if (!result.cancelled) onChangeImage(result.uri)
+        quality: 0.5,
+      });
+      if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {
-      console.log('Error reading an image', error)
+      console.log("Error reading an image", error);
     }
-  }
+  };
 
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
-        {!imageUri && <MaterialCommunityIcons colors={colors.medium} name='photo' size={40} /> }
+        {!imageUri && <MaterialCommunityIcons colors={colors.medium} name='camera' size={40} /> }
         {imageUri && <Image source={{ uri: imageUri }}  style={styles.image}/>}
       </View>
     </TouchableWithoutFeedback>
