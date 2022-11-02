@@ -1,6 +1,7 @@
-export default Object.freeze ({
-  LISTING_DETAILS: 'ListingDetails',
-  LISTING_EDIT: 'ListingEdit',
-  LOGIN: 'Login',
-  REGISTER: 'Register'
-})
+export default Object.freeze({
+  LISTING_DETAILS: "ListingDetails",
+  LISTING_EDIT: "ListingEdit",
+  LOGIN: "Login",
+  MESSAGES: "Messages",
+  REGISTER: "Register",
+});
